@@ -1,0 +1,171 @@
+blockquote{
+  /* font-size: 1.4em; */
+  width: 80%;
+  margin: 10px 150px;
+  padding: 1em 40px;
+  color: #555555;
+  border-left: 8px solid#78C0A8;
+  line-height: 1.6;
+  position: relative;
+  background: #EDEDED;
+}
+
+blockquote::before{
+  font-family:Arial;
+  content: "\201C";
+  color:#78C0A8;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-20px;
+}
+
+blockquote::after{
+  content: '';
+}
+
+blockquote span{
+  display:block;
+  color:#333333;
+  font-style: normal;
+  font-weight: bold;
+  margin-top:1em;
+}
+
+.main-head {
+  grid-area: header;
+}
+
+.navbar {
+  grid-area: navbar;
+}
+
+.blog-heroimage {
+  grid-area: blog-heroimage;
+}
+
+.author-info {
+  grid-area: author-info;
+}
+
+.recipe{
+  grid-area: recipe;
+}
+
+.main-footer{
+  grid-area: footer;
+}
+
+.post-wrapper{
+  display: grid;
+  grid-template-columns: 1fr, 3fr;
+  grid-template-areas:
+  "header navbar"
+  "blog-heroimage"
+  "author-info"
+  "recipe"
+  "footer"
+}
+
+/* Desktop size */
+@media (min-width: 700px) {
+  .post-wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header header navbar"
+      "blog-heroimage blog-heroimage blog-heroimage"
+      "author-info author-info author-info"
+      "recipe recipe recipe"
+      "footer footer footer"
+   }
+
+   /* Styling blog-heroimage */
+  .blog-heroimage img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:80vh;
+    padding: 20px 180px;
+  }
+
+  .blog-heroimage h2{
+    text-align: center;
+    font-family: 'Courgette',cursive;
+    font-size: 30px;
+    margin: 0;
+    padding-top: 20px;
+  }
+
+  /* Styling article: Author information */
+
+  .author-info{
+    padding: 20px 180px;
+  }
+
+  .avatar img{
+    width: 150px;
+    border-radius: 50%;
+  }
+
+  .no-wrap-text{
+    overflow: hidden;
+    text-align: justify;
+  }
+
+  .description h3{
+    font-family: "acme",sans-serif;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .description p{
+    font-family: "acme",sans-serif;
+    margin: 0;
+  }
+
+  .description a{
+    text-decoration: none;
+  }
+
+  /* Styling aside section */
+  .recipe{
+    margin: 20px 0;
+  }
+  .nestedgrid-recipe{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:20px;
+    padding: 20px 180px;
+  }
+
+  .recipe h2{
+    display: flex;
+    justify-content: center;
+    font-family: 'Courgette',cursive;
+    /* margin-top: 40px; */
+  }
+
+  .column{
+    width:100%;
+    height:100%;
+    position: relative;
+  }
+
+  .boldtext{
+    font-weight: bold;
+  }
+
+  .ingredients{
+    text-align: center;
+    border-right: 1px dotted grey;
+    font-style: italic;
+  }
+
+  .procedure{
+    text-align: left;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+}
